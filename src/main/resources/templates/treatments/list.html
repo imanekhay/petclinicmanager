@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <title>All Treatments</title>
+</head>
+<body>
+<h1>All Treatments</h1>
+
+<a th:href="@{/treatments/add}">Add New Treatment</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Pet</th>
+        <th>Vet</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${treatments}">
+        <td th:text="${t.description}">Description</td>
+        <td th:text="${t.date}">Date</td>
+        <td th:text="${t.pet.name}">Pet Name</td>
+        <td th:text="${t.vet.name}">Vet Name</td>
+        <td>
+            <a th:href="@{'/treatments/' + ${t.id}}">View</a> |
+            <a th:href="@{'/treatments/edit/' + ${t.id}}">Edit</a> |
+            <form th:action="@{'/treatments/delete/' + ${t.id}}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Back to Home</a>
+
+</body>
+</html>

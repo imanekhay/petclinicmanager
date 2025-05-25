@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <title>All Vets</title>
+</head>
+<body>
+<h1>All Vets</h1>
+
+<a th:href="@{/vets/add}">Add New Vet</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vet : ${vets}">
+        <td th:text="${vet.name}">Name</td>
+        <td th:text="${vet.specialization}">Specialization</td>
+        <td>
+            <a th:href="@{'/vets/' + ${vet.id}}">View</a> |
+            <a th:href="@{'/vets/edit/' + ${vet.id}}">Edit</a> |
+            <form th:action="@{'/vets/delete/' + ${vet.id}}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Back to Home</a>
+</body>
+</html>

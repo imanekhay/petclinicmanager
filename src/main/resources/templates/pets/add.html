@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <title>Add Pet</title>
+</head>
+<body>
+<h1>Add Pet</h1>
+
+<form th:action="@{/pets/add}" th:object="${pet}" method="post">
+    <div>
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" required />
+    </div>
+    <div>
+        <label>Type:</label>
+        <input type="text" th:field="*{type}" required />
+    </div>
+    <div>
+        <label>Owner:</label>
+        <select name="ownerId">
+            <option th:each="owner : ${owners}"
+                    th:value="${owner.id}"
+                    th:text="${owner.name}">
+            </option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+        <a th:href="@{/pets}">Cancel</a>
+    </div>
+</form>
+
+</body>
+</html>

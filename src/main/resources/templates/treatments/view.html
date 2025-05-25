@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <title>View Treatment</title>
+</head>
+<body>
+<h1>Treatment Details</h1>
+
+<p><strong>Description:</strong> <span th:text="${treatment.description}"></span></p>
+<p><strong>Date:</strong> <span th:text="${treatment.date}"></span></p>
+<p><strong>Pet:</strong> <span th:text="${treatment.pet.name}"></span></p>
+<p><strong>Vet:</strong> <span th:text="${treatment.vet.name}"></span></p>
+
+<a th:href="@{/treatments}">Back to list</a>
+</body>
+</html>

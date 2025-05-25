@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pet Owners</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Pet Owners</h1>
+<a th:href="@{/petowners/add}">Add New Pet Owner</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="owner : ${owners}">
+        <td th:text="${owner.id}"></td>
+        <td th:text="${owner.name}"></td>
+        <td th:text="${owner.email}"></td>
+        <td th:text="${owner.phone}"></td>
+        <td>
+            <a th:href="@{/petowners/edit/{id}(id=${owner.id})}">Edit</a> |
+            <a th:href="@{/petowners/delete/{id}(id=${owner.id})}" onclick="return confirm('Are you sure?');">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+<a th:href="@{/}">Back to Home</a>
+</body>
+</html>

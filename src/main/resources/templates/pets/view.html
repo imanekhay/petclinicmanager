@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <title>View Pet</title>
+</head>
+<body>
+<h1 th:text="'Pet: ' + ${pet.name}"></h1>
+
+<p><strong>Type:</strong> <span th:text="${pet.type}"></span></p>
+<p><strong>Owner:</strong> <span th:text="${pet.owner.name}"></span></p>
+
+<a th:href="@{/pets}">Back to list</a>
+</body>
+</html>

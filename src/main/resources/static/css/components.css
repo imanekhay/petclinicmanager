@@ -1,0 +1,69 @@
+/* Form styling */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(214, 51, 132, 0.15);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input[type="text"],
+form input[type="date"],
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Utility / Logout Button */
+.btn-logout {
+    background: none;
+    color: #d63384;
+    border: 2px solid #d63384;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    display: inline-block;
+}
+
+.btn-logout:hover {
+    background-color: #ffe6f0;
+    color: #bf2b74;
+    border-color: #bf2b74;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 10px rgba(214, 51, 132, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f3dce6;
+}
+
+th {
+    background-color: #ffe6f0;
+    color: #d63384;
+}

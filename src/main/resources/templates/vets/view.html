@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <title>View Vet</title>
+</head>
+<body>
+<h1 th:text="'Vet: ' + ${vet.name}"></h1>
+
+<p><strong>Specialization:</strong> <span th:text="${vet.specialization}"></span></p>
+
+<a th:href="@{/vets}">Back to list</a>
+</body>
+</html>

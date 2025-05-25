@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <title>Add Treatment</title>
+</head>
+<body>
+<h1>Add Treatment</h1>
+
+<form th:action="@{/treatments/add}" th:object="${treatment}" method="post">
+    <div>
+        <div>
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" required />
+        </div>
+
+
+        <label>Description:</label>
+        <input type="text" th:field="*{description}" required />
+    </div>
+    <div>
+        <label>Date:</label>
+        <input type="date" th:field="*{date}" required />
+    </div>
+    <div>
+        <label>Pet:</label>
+        <select name="petId" required>
+            <option th:each="pet : ${pets}" th:value="${pet.id}" th:text="${pet.name}"></option>
+        </select>
+    </div>
+    <div>
+        <label>Vet:</label>
+        <select name="vetId" required>
+            <option th:each="vet : ${vets}" th:value="${vet.id}" th:text="${vet.name}"></option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+        <a th:href="@{/treatments}">Cancel</a>
+    </div>
+</form>
+
+</body>
+</html>
