@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <link rel="stylesheet" th:href="@{/css/styles.css}" />
-
+  <head>
     <title>Home</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
-</head>
-<body>
-<h1>Welcome to Pet Clinic Manager</h1>
-<nav>
-    <a th:href="@{/petowners}">Pet Owners</a> |
-    <a th:href="@{/pets}">Pets</a> |
-    <a th:href="@{/vets}">Vets</a> |
-    <a th:href="@{/treatments}">Treatments</a> |
-    <form th:action="@{/logout}" method="post" style="display:inline;">
-        <button type="submit" class="btn-logout">
-            🚪 Logout
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body class="fade-in" style="min-height: 100vh">
+    <div class="card" style="max-width: 520px; margin-top: 3rem">
+      <h1 style="margin-bottom: 0.5em">
+        🐾 Welcome to
+        <span style="color: var(--primary-dark)">Pet Clinic Manager</span>
+      </h1>
+      <hr class="section-divider" />
+      <nav style="margin-bottom: 2em">
+        <a th:href="@{/petowners}" class="a-btn">Pet Owners</a>
+        <a th:href="@{/pets}" class="a-btn">Pets</a>
+        <a th:href="@{/vets}" class="a-btn">Vets</a>
+        <a th:href="@{/treatments}" class="a-btn">Treatments</a>
+      </nav>
+      <form th:action="@{/logout}" method="post" style="text-align: center">
+        <button
+          type="submit"
+          class="btn-gradient btn-logout"
+          style="width: 100%"
+        >
+          🚪 Logout
         </button>
-
-    </form>
-
-
-</nav>
-</body>
+      </form>
+    </div>
+  </body>
 </html>

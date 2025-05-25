@@ -1,5 +1,427 @@
-@import url('base.css');
-@import url('layout.css');
-@import url('components.css');
-@import url('pages.css');
+/* --- Root Variables for Consistency --- */
+:root {
+  --primary: #d63384;
+  --primary-dark: #a61e58;
+  --accent: #ffe6f0;
+  --background: #fff0f5;
+  --white: #fff;
+  --gray: #f3dce6;
+  --text: #333;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(214, 51, 132, 0.1);
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+/* --- General Body & Typography --- */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #fff0f5 0%, #ffe6f0 100%);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* --- Navigation Bar --- */
+nav {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  margin: 24px auto 32px auto;
+  max-width: 1100px;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background: var(--accent);
+  color: var(--primary-dark);
+}
+
+.btn-logout {
+  margin-left: 1.5rem;
+}
+
+/* --- Form Styling --- */
+form {
+  background: var(--white);
+  padding: 32px 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 32px auto;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--primary-dark);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid var(--gray);
+  border-radius: var(--radius);
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  background: #faf6fa;
+  transition: border-color 0.2s;
+}
+
+form input:focus,
+form select:focus {
+  border-color: var(--primary);
+  outline: none;
+  background: var(--accent);
+}
+
+form button[type="submit"] {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+}
+
+form button[type="submit"]:hover {
+  background: var(--primary-dark);
+}
+
+form a {
+  color: var(--primary-dark);
+  margin-left: 16px;
+  font-size: 1rem;
+}
+
+/* --- Table Styling --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border: 1.5px solid var(--gray);
+}
+
+th,
+td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--gray);
+}
+
+th {
+  background: linear-gradient(90deg, var(--accent) 60%, #fff0f5 100%);
+  color: var(--primary-dark);
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background: linear-gradient(90deg, #fff4fa 60%, #ffe6f0 100%);
+  transition: background 0.2s;
+}
+
+td a,
+td button {
+  margin-right: 0.5em;
+}
+
+/* --- Button Utility --- */
+button,
+.btn,
+.btn-logout {
+  background: none;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin: 0 4px;
+}
+
+button:hover,
+.btn:hover,
+.btn-logout:hover {
+  background: var(--accent);
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* --- Card Layouts --- */
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 32px rgba(214, 51, 132, 0.13);
+  border-radius: var(--radius);
+  padding: 2.2rem 1.7rem;
+  margin: 2.5rem auto;
+  max-width: 600px;
+  backdrop-filter: blur(2px);
+  border: 1.5px solid var(--gray);
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 12px 36px rgba(214, 51, 132, 0.19);
+}
+
+/* --- Glassmorphism Panel --- */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px rgba(214, 51, 132, 0.1);
+  border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+  border: 1.5px solid var(--gray);
+  padding: 2rem;
+}
+
+/* --- Animated Gradient Buttons --- */
+.btn-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    #f783ac 60%,
+    var(--primary-dark)
+  );
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(214, 51, 132, 0.08);
+  transition: background 0.3s, transform 0.2s;
+  margin: 0 4px;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(
+    90deg,
+    var(--primary-dark),
+    #f783ac 60%,
+    var(--primary)
+  );
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* --- Tag/Chip Styles --- */
+.tag,
+.chip {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--primary-dark);
+  border-radius: 999px;
+  padding: 0.25em 1em;
+  font-size: 0.95em;
+  font-weight: 600;
+  margin: 0 0.25em 0.25em 0;
+  border: 1px solid var(--primary);
+  letter-spacing: 0.03em;
+}
+
+/* --- Section Dividers --- */
+.section-divider {
+  border: none;
+  border-top: 2px dashed var(--primary);
+  margin: 2.5rem 0;
+  opacity: 0.25;
+}
+
+/* --- Floating Labels for Forms --- */
+.form-group {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 12px 14px 12px;
+  border: 1.5px solid var(--gray);
+  border-radius: var(--radius);
+  background: #faf6fa;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group label {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: var(--white);
+  color: var(--primary-dark);
+  padding: 0 4px;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group select:focus + label,
+.form-group select:not([value=""]) + label {
+  top: -12px;
+  left: 10px;
+  font-size: 0.88rem;
+  color: var(--primary);
+  background: var(--accent);
+}
+
+/* --- Avatar / Profile Circle --- */
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(214, 51, 132, 0.1);
+  margin-right: 1rem;
+}
+
+/* --- Responsive Card Grid --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* --- Subtle Animations --- */
+.fade-in {
+  animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Login & Error Message Styling --- */
+form .error,
+.error-message {
+  color: #fff;
+  background: linear-gradient(90deg, #d63384 60%, #a61e58 100%);
+  border-radius: var(--radius);
+  padding: 0.7em 1.2em;
+  margin: 1em 0;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(214, 51, 132, 0.1);
+  text-align: center;
+}
+
+/* --- Improved Link Buttons --- */
+a.button,
+.a-btn {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0.5em 0;
+  transition: var(--transition);
+  text-align: center;
+}
+
+a.button:hover,
+.a-btn:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* --- Extra Responsive Tweaks --- */
+@media (max-width: 500px) {
+  .card,
+  .glass,
+  form {
+    padding: 1rem 0.5rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  th,
+  td {
+    font-size: 0.93rem;
+    padding: 7px 6px;
+  }
+}
+
+/* --- Misc --- */
+::-webkit-input-placeholder {
+  color: #b98ca6;
+}
+::-moz-placeholder {
+  color: #b98ca6;
+}
+:-ms-input-placeholder {
+  color: #b98ca6;
+}
+::placeholder {
+  color: #b98ca6;
+}
